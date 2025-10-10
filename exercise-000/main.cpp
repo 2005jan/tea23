@@ -3,6 +3,17 @@
 
 #include "config.h.in"
 
+void changeValueByParameter(int value)
+{
+    value = 99;
+    fmt::print("In fct byparam: {}\n", value);
+}
+
+void changeValueByPointer(int *ptr)
+{
+    *ptr = 77;
+    fmt::print("In fct byptr: {}\n", *ptr);
+}
 
 int main(int argc, char **argv) {
 
@@ -32,7 +43,16 @@ int main(int argc, char **argv) {
 
     double* d = new double(3.1415);   // Speicher reservieren UND initialisieren
     fmt::println("Wert: {}", *d);    // Zugriff über Dereferenzierung
-    delete d;                         
+    delete d;            
+    
+    int y = 5;
+    fmt::print("Vor 1. Aufruf: {}\n", y);
+    changeValueByParameter(y);
+    fmt::print("Nach 1. Aufruf: {}\n", y);
+
+    fmt::print("Vor 2. Aufruf: {}\n", y);
+    changeValueByPointer(&y);
+    fmt::print("Nach 2. Aufruf: {}\n", y);
 
     return 0; /* exit gracefully*/
 }
