@@ -28,5 +28,11 @@ int main(int argc, char **argv) {
     fmt::print("x: {} Adresse x: {}\n", x, fmt::ptr(&x));
     fmt::print("p: {} Adresse p: {}\n", *p, fmt::ptr(p));
 
+    /* AUFGABE 2*/
+
+    double* d = new double(3.1415);   // Speicher reservieren UND initialisieren
+    fmt::println("Wert: {}", *d);    // Zugriff über Dereferenzierung
+    delete d;                         
+
     return 0; /* exit gracefully*/
 }
