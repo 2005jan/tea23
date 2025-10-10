@@ -3,6 +3,7 @@
 
 #include "config.h.in"
 
+
 int main(int argc, char **argv) {
 
     /**
@@ -10,6 +11,8 @@ int main(int argc, char **argv) {
      * it is much more convenient than std::cout and printf
      * More info at https://fmt.dev/latest/api.html
      */
+
+
     fmt::print("Hello, {}!\n", tea::PROJECT_NAME);
     fmt::print("Anzahl Argument (argc): {}\n",argc);
     for (size_t i = 0; i<argc; i++)
@@ -18,6 +21,12 @@ int main(int argc, char **argv) {
     }
 
     /* INSERT YOUR CODE HERE */
+
+    int x = 10;
+    int *p = &x;
+    *p = 42;
+    fmt::print("x: {} Adresse x: {}\n", x, fmt::ptr(&x));
+    fmt::print("p: {} Adresse p: {}\n", *p, fmt::ptr(p));
 
     return 0; /* exit gracefully*/
 }
