@@ -27,11 +27,13 @@ int main(int argc, char **argv) {
     fmt::print("Wert: {}, Adresse: {}\n", globalVar, fmt::ptr(&globalVar));
     fmt::print("Wert: {}, Adresse: {}\n", staticVar, fmt::ptr(&staticVar));
     fmt::print("Wert: {}, Adresse: {}\n", constVar, fmt::ptr(&constVar));
-    //fmt::print("Wert: {}, Adresse: {}\n", &heapVar, fmt::ptr(heapVar));
+    fmt::print("Heap Wert: {}, Adresse: {}\n", fmt::ptr(&heapVar), fmt::ptr(heapVar));
     fmt::print("Wert: {}, Adresse: {}\n", localVar, fmt::ptr(&localVar));
     fmt::print("Wert: {}, Adresse: {}\n", localstaticVar, fmt::ptr(&localstaticVar));
     fmt::print("Wert: {}, Adresse: {}\n", localconstVar, fmt::ptr(&localconstVar));
-    //fmt::print("Wert: {}, Adresse: {}\n", &localheapVar, fmt::ptr(localheapVar));
+    fmt::print("Heap Wert: {}, Adresse: {}\n", fmt::ptr(&localheapVar), fmt::ptr(localheapVar));
 
+    delete heapVar;
+    delete localheapVar;
     return 0; /* exit gracefully*/
 }
