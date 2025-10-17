@@ -8,6 +8,8 @@ int static staticVar = 1;
 int const constVar = 1;
 int* heapVar = new int(3);
 
+void foo() { fmt::print("Hello from foo!\\n");}
+
 int main(int argc, char **argv) {
 
     /**
@@ -32,6 +34,8 @@ int main(int argc, char **argv) {
     fmt::print("Wert: {}, Adresse: {}\n", localstaticVar, fmt::ptr(&localstaticVar));
     fmt::print("Wert: {}, Adresse: {}\n", localconstVar, fmt::ptr(&localconstVar));
     fmt::print("Heap Wert: {}, Adresse: {}\n", fmt::ptr(&localheapVar), fmt::ptr(localheapVar));
+
+    fmt::print("Adresse von foo: {}\n", fmt::ptr(&foo));
 
     delete heapVar;
     delete localheapVar;
