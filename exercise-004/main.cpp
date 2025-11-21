@@ -3,6 +3,11 @@
 
 #include "CLI/CLI.hpp"
 #include "config.h"
+#include "image.h"
+#include <opencv2/core.hpp>
+#include <opencv2/imgcodecs.hpp>
+#include <opencv2/imgproc.hpp>
+
 
 auto main(int argc, char **argv) -> int
 {
@@ -30,6 +35,11 @@ auto main(int argc, char **argv) -> int
 
     /* INSERT YOUR CODE HERE */
 
+    fmt::print("Embedded image size: {} x {} \n", image_width, image_height);
+
+    std::vector <uchar> v(image, image + image_width);
+    cv::Mat img = cv::imdecode(cv::Mat(v), (cv::IMREAD_GRAYSCALE, cv::IMREAD_COLOR));
+    fmt::print("{}", img.channels());
 
     return 0; /* exit gracefully*/
 }
